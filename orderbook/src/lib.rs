@@ -515,7 +515,7 @@ impl OrderBook {
                 if depth_update.p < self.best_deal_asks_level_price.get()
                     && depth_update.q.is_sign_negative()
                     && depth_update.l as f64 == self.best_deal_asks_level_location.get()
-                    && self.best_deal_asks_level_quantity.get() + depth_update.q < 0.0
+                    && self.best_deal_asks_level_quantity.get() + depth_update.q <= 0.0
                 {
                     let mut first_liquid_node = true;
                     loop {
@@ -586,7 +586,7 @@ impl OrderBook {
                 if depth_update.p > self.best_deal_asks_level_price.get()
                     && depth_update.q.is_sign_negative()
                     && depth_update.l as f64 == self.best_deal_asks_level_location.get()
-                    && self.best_deal_bids_level_quantity.get() + depth_update.q < 0.0
+                    && self.best_deal_bids_level_quantity.get() + depth_update.q <= 0.0
                 {
                     let mut first_liquid_node = true;
                     loop {
