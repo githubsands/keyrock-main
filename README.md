@@ -11,11 +11,7 @@ are provided through a grpc server endpoint
 IO components, ExchangeStreams, and Quote GRPC Server, are ran on seperate tokio runtimes in their own
 pinned threads.
 
-<<<<<<< HEAD
 Orderbook is ran with multiplie threads. One for writing to the orderbook the others for reading the orderbook
-=======
-Orderbook is ran with multiplie threads. One to writing to the orderbook the others for reading the orderbook
->>>>>>> 4d171ce (final pushes)
 
 ## Components 
 
@@ -34,14 +30,7 @@ Provides a controlling interface to all exchange streams.
 Future work: 
 
 (1) Handle more then just two exchanges
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d171ce (final pushes)
-=======
-
->>>>>>> 66a2e7c (readme fix)
 (2) Needs to handle orderbook reset and orderbook snapshot
 retriggering with correct sequencing, and websocket reconnection.
 
@@ -52,20 +41,11 @@ Handles orderbook writing and reading.
 Has 2 states:
 
 (1) Building the orderbook with http snapshots
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d171ce (final pushes)
-=======
-
->>>>>>> 66a2e7c (readme fix)
 (2) Updating the the orderbook with ws depths and then reading the orderbook for best deals
 
 Future work: 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 (1) A state when the orderbook is needs rebuilding if a ExchangeStream websocket connection fails. 
 
 (2) Reduce dynamic memory allocations
@@ -94,24 +74,34 @@ Provides both HTTP and websocket endpoints for depths. Leverages depth generator
 Dockerized exchange stub for full integration testing.
 
 
-=======
 (1) Required state required is rebuilding the orderbook if a ExchangeStream websocket connection fails. 
-=======
-(1) A state when the orderbook is needs rebuilding if a ExchangeStream websocket connection fails. 
 
->>>>>>> 66a2e7c (readme fix)
 (2) Reduce dynamic memory allocations
 
 (3) Possibly run ask and bid reader threads to in their own threads rather
 then having both readers run on the same core (a threadpool also would be another lower dev cost solution here)
 
-(4) Use a decimals or another solutiuon over floats for quantities.
+(4) Use a decimals or another solution over floats for quantities.
 
-(5) Use a decimals or another solutiuon over floats for price levels.
+(5) Use a decimals or another solution over floats for price levels.
 
 (6) Possibly more performant atomic memory ordering 
 
->>>>>>> 4d171ce (final pushes)
+### Testing
+
+#### 1. Depth Generator
+
+Generates depths in many different sequences.
+
+#### 2. Exchange Stubs
+
+Provides both HTTP and websocket endpoints for depths. Leverages depth generator.
+
+#### 3. Exchange Server
+
+Dockerized exchange stub for full integration testing.
+
+
 ### Quote GRPC Server
 
 Takes the spread and provides the best ten deals and asks to a grpc client
