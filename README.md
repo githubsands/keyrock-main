@@ -35,9 +35,13 @@ Future work:
 
 (1) Handle more then just two exchanges
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 4d171ce (final pushes)
+=======
+
+>>>>>>> 66a2e7c (readme fix)
 (2) Needs to handle orderbook reset and orderbook snapshot
 retriggering with correct sequencing, and websocket reconnection.
 
@@ -49,13 +53,18 @@ Has 2 states:
 
 (1) Building the orderbook with http snapshots
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 4d171ce (final pushes)
+=======
+
+>>>>>>> 66a2e7c (readme fix)
 (2) Updating the the orderbook with ws depths and then reading the orderbook for best deals
 
 Future work: 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 (1) A state when the orderbook is needs rebuilding if a ExchangeStream websocket connection fails. 
 
@@ -87,11 +96,19 @@ Dockerized exchange stub for full integration testing.
 
 =======
 (1) Required state required is rebuilding the orderbook if a ExchangeStream websocket connection fails. 
+=======
+(1) A state when the orderbook is needs rebuilding if a ExchangeStream websocket connection fails. 
+
+>>>>>>> 66a2e7c (readme fix)
 (2) Reduce dynamic memory allocations
-(3) Possibly run ask and bid reader threads to their own threads and pin them to their own cores rather
-then have both readers run on the same core (a threadpool also would be another lower dev cost solution here)
+
+(3) Possibly run ask and bid reader threads to in their own threads rather
+then having both readers run on the same core (a threadpool also would be another lower dev cost solution here)
+
 (4) Use a decimals or another solutiuon over floats for quantities.
+
 (5) Use a decimals or another solutiuon over floats for price levels.
+
 (6) Possibly more performant atomic memory ordering 
 
 >>>>>>> 4d171ce (final pushes)
