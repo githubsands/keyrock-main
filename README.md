@@ -29,7 +29,7 @@ Provides a controlling interface to all exchange streams.
 
 Future work: 
 
-(1) Handle more then just two exchanges
+(1) Handle more then just two exchanges (currently the orderbook can be configured for N exchanges but not the exchange controller)
 
 (2) Needs to handle orderbook reset and orderbook snapshot
 retriggering with correct sequencing, and websocket reconnection.
