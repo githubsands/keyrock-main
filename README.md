@@ -13,12 +13,25 @@ pinned threads.
 
 Orderbook is ran with multiplie threads. One for writing to the orderbook the others for reading the orderbook
 
+# Building
+
+Builds are done through the build script (build.rs). The script reads the config file and runs procedural macros on 
+the code base. The config file's "orderbook.exchange_count" and exchange's exchange array length must be equal or the
+build script will fail.
+
+Deployment team work flow goes as this: (1) edit the `config.yaml` with necessary exchanges and then run the build script 
+from the root directory (cargo build).
+
+Files changed by the build script are: 
+
+(1) orderbook/src/lib.rs
+
 ## Components 
 
 ### ExchangeStream
 
 Runs both http snapshot streams and websocket streams. Can handle retriggering the http snapshot stream 
-but currently is not implemented in the Orderbook/ExchangeController. 
+but it currently is not implemented in the Orderbook/ExchangeController. 
 
 Future work: Ideally these streams are done purely on the stack but this must be verified. Correct 
 sequencing of orderbook snapshots and depth updates through their timestamps
