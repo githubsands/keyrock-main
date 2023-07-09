@@ -100,21 +100,6 @@ then having both readers run on the same core (a threadpool also would be anothe
 
 (6) Possibly more performant atomic memory ordering 
 
-### Testing
-
-#### 1. Depth Generator
-
-Generates depths in many different sequences.
-
-#### 2. Exchange Stubs
-
-Provides both HTTP and websocket endpoints for depths. Leverages depth generator.
-
-#### 3. Exchange Server
-
-Dockerized exchange stub for full integration testing.
-
-
 ### Quote GRPC Server
 
 Takes the spread and provides the best ten deals and asks to a grpc client
